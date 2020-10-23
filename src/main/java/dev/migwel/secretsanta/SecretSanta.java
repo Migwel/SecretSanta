@@ -1,4 +1,4 @@
-package net.migwel.secretsanta;
+package dev.migwel.secretsanta;
 
 public class SecretSanta {
 

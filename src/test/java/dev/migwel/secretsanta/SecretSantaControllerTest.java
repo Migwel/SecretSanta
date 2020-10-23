@@ -1,4 +1,4 @@
-package net.migwel.secretsanta;
+package dev.migwel.secretsanta;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package net.migwel.secretsanta;
+package dev.migwel.secretsanta;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

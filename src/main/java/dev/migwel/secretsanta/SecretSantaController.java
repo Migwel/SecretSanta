@@ -1,4 +1,4 @@
-package net.migwel.secretsanta;
+package dev.migwel.secretsanta;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
