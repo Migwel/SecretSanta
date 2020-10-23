@@ -1,8 +1,10 @@
 package dev.migwel.secretsanta;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +19,9 @@ public class SecretSantaController {
         this.secretSantaService = secretSantaService;
     }
 
-    @RequestMapping(method= RequestMethod.GET)
-    public SecretSantaResponse getSecretSanta(SecretSantaRequest request) {
+    @RequestMapping(method= RequestMethod.POST)
+    @ResponseBody
+    public SecretSantaResponse getSecretSanta(@RequestBody SecretSantaRequest request) {
         var hamiltonCycle = secretSantaService.computeHamiltonCycle(request.getParticipants());
         List<SecretSanta> secretSantas = buildSecretSantas(hamiltonCycle);
         return new SecretSantaResponse(secretSantas);
