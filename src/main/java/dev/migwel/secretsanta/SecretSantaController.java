@@ -14,9 +14,11 @@ import java.util.List;
 public class SecretSantaController {
 
     private final SecretSantaService secretSantaService;
+    private final EmailSender emailSender;
 
-    public SecretSantaController(SecretSantaService secretSantaService) {
+    public SecretSantaController(SecretSantaService secretSantaService, EmailSender emailSender) {
         this.secretSantaService = secretSantaService;
+        this.emailSender = emailSender;
     }
 
     @RequestMapping(method= RequestMethod.POST)
@@ -24,6 +26,11 @@ public class SecretSantaController {
     public SecretSantaResponse getSecretSanta(@RequestBody SecretSantaRequest request) {
         var hamiltonCycle = secretSantaService.computeHamiltonCycle(request.getParticipants());
         List<SecretSanta> secretSantas = buildSecretSantas(hamiltonCycle);
+        if (request.isSendEmail()) {
+            for (var secretSanta : secretSantas) {
+                emailSender.send(secretSanta.getSecretSanta().getEmail(), secretSanta);
+            }
+        }
         return new SecretSantaResponse(secretSantas);
     }
 

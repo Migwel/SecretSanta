@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SecretSantaControllerTest {
 
-    private final SecretSantaController controller = new SecretSantaController(new SecretSantaService());
+    private final SecretSantaController controller = new SecretSantaController(new SecretSantaService(), new EmailSender());
 
     @Test
     void testGetValidSecretSanta() throws IOException {

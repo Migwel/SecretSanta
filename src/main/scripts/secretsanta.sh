@@ -1,1 +1,1 @@
-curl -H "Content-Type: application/json" -X POST -d '{"participants": [{"name" : "Mickey"},{"name" : "Minnie"},{"name" : "Donald"},{"name" : "Daisy"}]}' http://localhost:8092 | json_pp
+curl -H "Content-Type: application/json" -X POST -d '{"participants": [{"name" : "Mickey"},{"name" : "Minnie"},{"name" : "Donald"},{"name" : "Daisy"}], "sendEmail": false}' http://localhost:8092 | json_pp
