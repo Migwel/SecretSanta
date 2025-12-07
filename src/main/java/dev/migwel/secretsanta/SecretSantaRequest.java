@@ -13,6 +13,7 @@ public class SecretSantaRequest {
 
     public SecretSantaRequest(List<Participant> participants, boolean sendEmail) {
         this.participants = participants;
+        this.sendEmail = sendEmail;
     }
 
     public List<Participant> getParticipants() {
